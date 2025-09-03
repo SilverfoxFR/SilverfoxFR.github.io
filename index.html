@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Modular Engine (Local)</title>
+<link rel="stylesheet" href="./src/style.css">
+<link rel="apple-touch-icon" href="WebAssets/icon.png">
+<script type="module" src="./src/shell/logger.js"></script>
+<script src="./vendor/jszip.min.js"></script>
+<script type="module" src="./src/shell/packLoader.js"></script>
+</head>
+<body>
+<div id="root">
+  <header class="row">
+    <strong>Modular Engine — Local</strong>
+    <span style="margin-left:auto" class="row">
+      <span id="perfText" class="hint"></span>
+      <span id="batteryText" class="hint"></span>
+    </span>
+  </header>
+
+  <main>
+    <button id="openSettings" class="fancy-btn settings-btn">⚙️</button>
+
+    <!-- Top bar with settings -->
+    <div class="card" id="library">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.5rem;">
+        <h3 style="margin:0;">Your Packs</h3>
+        <button id="reloadPacks" class="reload-btn">↻</button>
+      </div>
+      <div id="packsList" class="pack-grid"></div>
+    </div>
+
+    <!-- Game canvas -->
+    <div class="card" id="gameWrap" style="display:none">
+      <canvas id="game" width="640" height="360" aria-label="Game canvas"></canvas>
+    </div>
+  </main>
+
+  <footer class="row">
+    <span>Open this file locally. On iOS: Share → Add to Home Screen.</span>
+    <span style="margin-left:auto" id="status" class="hint"></span>
+  </footer>
+</div>
+
+
+<script type="module" src="./src/main.js"></script>
+
+<!-- Debug logger -->
+<div id="logBox" style="
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  max-height:350px;
+  overflow-y:auto;
+  background:#000;
+  color:#0f0;
+  font-family:monospace;
+  font-size:12px;
+  padding:5px;
+  z-index:9999;
+">
+	<div id="logContent"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,2 @@
+import { Scene } from './Scene.js';
+export class TitleScene extends Scene{ constructor(){ super(); this.t=0; } update(dt,{input,engine}){ this.t+=dt; if(input.justPressed('Enter')||input.justPressed('Space')||input.justPressed('KeyZ')){ engine.setQuality('medium'); } } render(r){ r.clear('#000'); const b=r.bctx; b.fillStyle='#fff'; b.font='16px monospace'; b.textAlign='center'; b.fillText('Modular Engine — Local', r.vw/2, r.vh/2-10); if((this.t*2|0)%2===0) b.fillText('Press Z / Enter', r.vw/2, r.vh/2+20); r.drawToScreen(); } }

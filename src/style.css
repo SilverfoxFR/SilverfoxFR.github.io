@@ -1,0 +1,179 @@
+/* Background setup */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  background: url("../WebAssets/bg.png") center/cover no-repeat fixed;
+  color: #eee;
+}
+
+/* Let content breathe */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  box-sizing: border-box;
+  background-color: rgba(0,0,0,0.55); /* overlay for readability */
+  border-radius: 12px;
+  margin: auto;
+  max-width: 900px;
+}
+
+/* Header */
+header {
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 1rem;
+  border-bottom: 2px solid rgba(255,255,255,0.2);
+}
+
+/* Footer */
+footer {
+  padding: 1rem;
+  font-size: 0.9rem;
+  border-top: 2px solid rgba(255,255,255,0.2);
+}
+
+/* Cards */
+.card {
+  background: rgba(30,30,30,0.8);
+  padding: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* Buttons - rectangle w/ rounded corners + dual tone */
+.fancy-btn {
+  background: linear-gradient(135deg, var(--btn-main, #3b82f6), var(--btn-accent, #1e40af));
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  margin: 0.3rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fancy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.35);
+}
+
+.fancy-btn:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.5);
+}
+
+/* Inputs hidden but label triggers */
+input[type="file"] {
+  display: none;
+}
+
+/* Grid spacing */
+main {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Scrollable library list */
+.scroll-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 300px; /* adjust if too big/small */
+  overflow-y: auto;
+}
+
+.scroll-list li {
+  padding: 0.6rem 1rem;
+  margin: 0.2rem 0;
+  background: rgba(255,255,255,0.05);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.scroll-list li:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* Floating settings button */
+.settings-btn {
+  position: absolute;
+  top: 17px; /* adjust depending on header height */
+  right: 65px;
+  padding: 0.6rem 0.8rem;
+  border-radius: 15%;
+  font-size: 1.2rem;
+}
+
+/* Make library list scrollable inside the card */
+#library {
+  max-height: 60vh; /* only scroll inside card */
+  overflow-y: auto;
+}
+
+.library-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reload-btn {
+  border: none;
+  background: #2196f3;
+  color: white;
+  border-radius: 10%;
+  width: 32px;
+  height: 32px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.reload-btn:hover {
+  background: #1769aa;
+}
+
+.pack-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  max-height: 60vh; /* scrollable if too many packs */
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+.pack-grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: rgba(50,50,50,0.5);
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.pack-grid-item:hover {
+  transform: scale(1.05);
+}
+
+.pack-icon {
+  width: 90%;   /* 10% smaller than cell width */
+  aspect-ratio: 1 / 1; /* keep square */
+  object-fit: contain;
+  margin-bottom: 0.3rem;
+  border-radius: 10%;
+}
+
+.pack-name {
+  text-align: center;
+  font-size: 0.9rem;
+  word-break: break-word;
+}

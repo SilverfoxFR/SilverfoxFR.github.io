@@ -1,0 +1,5 @@
+{
+  "name": "Adventure",
+  "type": "Game2D",
+  "entry": "main.js"
+}

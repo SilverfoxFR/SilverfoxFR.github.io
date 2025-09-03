@@ -1,0 +1,15 @@
+{
+    "name": "Modular Engine",
+    "short_name": "ModEngine",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#1e40af",
+    "icons": [
+        {
+            "src": "WebAssets/icon.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        }
+    ]
+}

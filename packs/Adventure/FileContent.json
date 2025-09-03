@@ -1,0 +1,7 @@
+{
+  "scripts": ["scripts/entry.js"],
+  "sprites": [],
+  "sounds": [],
+  "scenes": { "Adventure": "scripts/entry.js" },
+  "functions": {}
+}
