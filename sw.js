@@ -52,8 +52,13 @@ self.addEventListener('fetch', (event) => {
     caches.match(event.request).then(response => {
       return response || fetch(event.request);
     }).catch(() => {
-      // Optional: fallback if file not cached and network fails
-      return new Response('Offline: File not available', { status: 503, statusText: 'Service Worker offline' });
+      // Show which file caused the offline error
+      return new Response(
+        `Offline: File not available → ${event.request.url}`,
+        { status: 503, statusText: 'Service Worker offline' }
+      );
     })
   );
 });
+
+
