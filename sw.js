@@ -19,13 +19,6 @@ const FILES_TO_CACHE = [
   // Add more files here manually if you want to cache specific pack icons or scripts
 ];
 
-function swLog(msg) {
-  console.log("[SW]", msg); // still goes to browser console
-  self.clients.matchAll().then(clients => {
-    clients.forEach(client => client.postMessage({ type: "sw-log", msg }));
-  });
-}
-
 swLog("[LOG] The sw.js file was called and launched correctly !");
 // Install event: caching files
 self.addEventListener('install', (event) => {
@@ -39,6 +32,15 @@ self.addEventListener('install', (event) => {
   self.skipWaiting(); // take control immediately
 });
 
+function swLog(msg) {
+  console.log("[SW]", msg);
+
+  self.clients.matchAll().then(clients => {
+    clients.forEach(client => {
+      client.postMessage({ type: "sw-log", message: msg});
+    });
+  });
+}
 // Activate event: cleanup old caches if needed
 self.addEventListener('activate', (event) => {
   swLog('[SW] Activating...');
@@ -68,6 +70,7 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
+
 
 
 
