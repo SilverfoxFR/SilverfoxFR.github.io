@@ -27,3 +27,8 @@
     write(args.join(" "), "warn");
   };
 })();
+navigator.serviceWorker.addEventListener("message", event => {
+  if (event.data.type === "sw-log") {
+    console.log("[SW→Page]", event.data.msg); // goes into your logBox
+  }
+});
