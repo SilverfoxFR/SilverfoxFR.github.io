@@ -45,7 +45,7 @@ async function startPack(folder) {
   console.log(`[LOG] Hi ! The game ID "${folder}" is now being loaded !`);
   document.getElementById("runtime").innerHTML = "";
   const script = document.createElement("script");
-  script.src = `./packs/${folder}/main.js`;
+  script.src = `./packs/${folder}/scripts/entry.js`;
   document.body.appendChild(script);
 }
 
