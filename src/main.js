@@ -14,4 +14,5 @@ registerSW();
 // rest of your main.js
 import { initShell } from './shell/homeUI.js';
 console.log("main.js running!");
+console.log("Hi ! If you see this, then this means a PWA \trefreshes one/all files from Internet connection :D");
 initShell();
