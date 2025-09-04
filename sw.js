@@ -19,6 +19,7 @@ const FILES_TO_CACHE = [
   // Add more files here manually if you want to cache specific pack icons or scripts
 ];
 
+console.log("[LOG] The sw.js file was called and launched correctly !");
 // Install event: caching files
 self.addEventListener('install', (event) => {
   console.log('[SW] Installing...');
@@ -60,5 +61,6 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
+
 
 
