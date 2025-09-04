@@ -27,8 +27,17 @@
     write(args.join(" "), "warn");
   };
 })();
-navigator.serviceWorker.addEventListener("message", event => {
-  if (event.data.type === "sw-log") {
-    console.log("[SW→Page]", event.data.msg); // goes into your logBox
-  }
+
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.addEventListener("message", (event) => {
+    if (event.data && event.data.type === "sw-log") {
+      const logEvent = new CustomEvent("swLog", { detail: event.data.message });
+      window.dispatchEvent(logEvent);
+    }
+  });
+}
+window.addEventListener("swlog", (e) => {
+  const SWmsg = '[SW] ${e.detail}';
+  console.log(SWmsg);
 });
+  
