@@ -305,4 +305,3 @@ export function register(engine){
   }, { override: true });
 };
 
-register(Engine)
