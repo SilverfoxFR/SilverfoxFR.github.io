@@ -2,6 +2,8 @@
 // Adventure-mini: simple Adventure-like demo.
 // Single-file pack: defines scene, player, bats, items and registers an entry scene.
 
+import {Engine} `../../../src/core/engine.js`
+
 export function register(engine){
   // create sprites procedurally and register via engine.assets.image(...)
   async function makeSprite(name, drawFn, w=16, h=16){
@@ -301,4 +303,6 @@ export function register(engine){
   engine.registry.register('createEntryScene', ()=>{
     return new AdventureScene();
   }, { override: true });
-}
+};
+
+register(Engine)
