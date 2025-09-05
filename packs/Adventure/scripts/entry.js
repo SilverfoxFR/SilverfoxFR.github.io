@@ -305,5 +305,7 @@ export function register(engine){
   engine.registry.register('createEntryScene', ()=>{
     return new AdventureScene();
   }, { override: true });
+  const scene = engine.registry.call('createEntryScene');
+  engine.setScene(scene);
 };
 
