@@ -48,7 +48,9 @@ async function startPack(folder) {
   script.type = "module";
   script.src = `./packs/${folder}/scripts/entry.js`;
   document.body.appendChild(script);
-  game.register();
+  if (typeof register.main === "function") {
+    game.register(engine);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
