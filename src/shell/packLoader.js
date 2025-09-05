@@ -46,6 +46,7 @@ async function startPack(folder) {
   const { Engine } = await import("../core/engine.js");
   const game = await import(`../../packs/${folder}/scripts/entry.js`);
   const canvas = document.getElementById("game");
+  const gameWrap = document.getElementById("gameWrap");
   const engine = new Engine(canvas);
   if (game.register) {
     game.register(engine);
@@ -53,6 +54,7 @@ async function startPack(folder) {
   } else {
     console.error(`Pack "${folder}" has no register() function`);
   }
+  gameWrap.style.display = "";
 }
 
 
