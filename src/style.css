@@ -179,5 +179,11 @@ main {
 }
 
 #game {
-  position: absolute;
+  position: relative;
+  z-index: 10;
+}
+
+#gameWrap {
+    position: relative; 
+    z-index: 1;
 }
