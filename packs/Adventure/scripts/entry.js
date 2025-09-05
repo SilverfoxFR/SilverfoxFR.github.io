@@ -2,7 +2,7 @@
 // Adventure-mini: simple Adventure-like demo.
 // Single-file pack: defines scene, player, bats, items and registers an entry scene.
 
-import { Engine } from '../../src/core/engine.js';
+import { Engine } from '../../../src/core/engine.js';
 
 export function register(engine){
   // create sprites procedurally and register via engine.assets.image(...)
