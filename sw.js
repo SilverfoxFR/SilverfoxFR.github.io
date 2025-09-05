@@ -4,7 +4,6 @@ const FILES_TO_CACHE = [
   './src/style.css',
   './src/main.js',
   './src/shell/logger.js',
-  './src/shell/homeUI.js',
   './src/shell/MenuHandler.js',
   './src/shell/packLoader.js',
   './vendor/jszip.min.js',
@@ -71,6 +70,7 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
+
 
 
 
