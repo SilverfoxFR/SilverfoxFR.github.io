@@ -44,11 +44,12 @@ async function startPack(folder) {
   console.log(`[LOG] Hi ! The game ID "${folder}" is now being loaded !`);
   document.getElementById("runtime").innerHTML = "";
   const script = document.createElement("script");
-  const game = await import(`../../packs/${folder}/scripts/entry.js`); 
+  const game = await import(`../../packs/${folder}/scripts/entry.js`);
+  const engne = await import(`../core/engine.js`)
   script.type = "module";
   script.src = `./packs/${folder}/scripts/entry.js`;
   document.body.appendChild(script);
-  game.register(engine);
+  game.register(engne.Engine);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
