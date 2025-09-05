@@ -11,7 +11,6 @@ function registerSW() {
 // call it first thing
 registerSW();
 
-// rest of your main.js
-import { loadPacks } from './shell/packLoader.js';
+
 console.log("main.js running!");
-loadPacks();
+
