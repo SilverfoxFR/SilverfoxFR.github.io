@@ -12,6 +12,6 @@ function registerSW() {
 registerSW();
 
 // rest of your main.js
-import { initShell } from './shell/homeUI.js';
+import { loadPacks } from './shell/packLoader.js';
 console.log("main.js running!");
-initShell();
+loadPacks();
