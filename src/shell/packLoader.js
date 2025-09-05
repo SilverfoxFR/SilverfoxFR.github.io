@@ -45,7 +45,7 @@ async function startPack(folder) {
   document.getElementById("runtime").innerHTML = "";
   const { Engine } = await import("../core/engine.js");
   const game = await import(`../../packs/${folder}/scripts/entry.js`);
-  const canvas = document.getElementById("gameCanvas");
+  const canvas = document.getElementById("game");
   const engine = new Engine(canvas);
   if (game.register) {
     game.register(engine);
