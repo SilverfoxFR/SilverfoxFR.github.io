@@ -18,4 +18,4 @@ export class Engine{
 	loop(now){ const dt=Math.min(0.25,(now-this.last)/1000); this.last=now; this.acc+=dt; this.input.beginFrame(); this.monitor.tick(dt); if(this.monitor.shouldReduceQuality()) this.setQuality('medium'); if(this.monitor.shouldSafeCrash()){ this.onSafeCrash?.(); return; } while(this.acc>=1/60){ this.currentScene?.update?.(1/60,this.ctx()); this.acc-=1/60; } this.currentScene?.render?.(this.renderer,this.ctx()); requestAnimationFrame(this.loop.bind(this)); }
 };
 
-log.console("Hi ! engine.js is being called, and the class 'engine' is ready to use !");
+console.log("Hi ! engine.js is being called, and the class 'engine' is ready to use !");
