@@ -21,12 +21,15 @@ const FILES_TO_CACHE = [
 function swLog(msg) {
   console.log("[SW]", msg);
 
-  self.clients.matchAll().then(clients => {
-    clients.forEach(client => {
-      client.postMessage({ type: "sw-log", message: msg});
+  if (self.clients && self.clients.matchAll) {
+    self.clients.matchAll().then(clients => {
+      clients.forEach(client => {
+        client.postMessage({ type: "sw-log", message: msg });
+      });
     });
-  });
+  }
 }
+
 swLog("[LOG] The sw.js file was called and launched correctly !");
 // Install event: caching files
 self.addEventListener('install', (event) => {
@@ -70,6 +73,7 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
+
 
 
 
