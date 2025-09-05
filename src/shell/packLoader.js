@@ -48,8 +48,10 @@ async function startPack(folder) {
   const canvas = document.getElementById("game");
   const gameWrap = document.getElementById("gameWrap");
   const engine = new Engine(canvas);
+  const scene = engine.registry.call('createEntryScene');
   if (game.register) {
     game.register(engine);
+    engine.setScene(scene);
     engine.start();
   } else {
     console.error(`Pack "${folder}" has no register() function`);
