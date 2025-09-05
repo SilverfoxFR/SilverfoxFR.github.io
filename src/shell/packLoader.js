@@ -41,7 +41,7 @@ export async function loadPacks() {
 
 
 async function startPack(folder) {
-  console.log(`[LOG] Hi ! The game ID "${folder}" is now being loaded !`);
+  console.log(`Hi ! The game ID "${folder}" is now being loaded !`);
   document.getElementById("runtime").innerHTML = "";
   const { Engine } = await import("../core/engine.js");
   const game = await import(`../../packs/${folder}/scripts/entry.js`);
@@ -51,7 +51,7 @@ async function startPack(folder) {
     game.register(engine);
     engine.start();
   } else {
-    console.error(`[ERROR] Pack "${folder}" has no register() function`);
+    console.error(`Pack "${folder}" has no register() function`);
   }
 }
 
