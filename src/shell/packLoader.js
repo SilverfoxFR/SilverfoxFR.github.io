@@ -45,7 +45,7 @@ async function startPack(folder) {
   document.getElementById("runtime").innerHTML = "";
   const script = document.createElement("script");
   const game = await import(`../../packs/${folder}/scripts/entry.js`);
-  const engne = await import(`../core/engine.js`)
+  const engne = await import("../core/engine.js");
   script.type = "module";
   script.src = `./packs/${folder}/scripts/entry.js`;
   document.body.appendChild(script);
