@@ -5,6 +5,8 @@
 import { Engine } from '../../../src/core/engine.js';
 
 export function register(engine){
+
+  console.log("Hello from Adventure ! If you see this, the game has started :D")
   // create sprites procedurally and register via engine.assets.image(...)
   async function makeSprite(name, drawFn, w=16, h=16){
     const cvs = document.createElement('canvas');
