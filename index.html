@@ -50,6 +50,30 @@
   </footer>
 </div>
 
+
+
+
+<script type="module" src="./src/main.js"></script>
+
+<!-- Debug logger -->
+<div id="logBox" style="
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  max-height:350px;
+  overflow-y:auto;
+  background:#000;
+  color:#0f0;
+  font-family:monospace;
+  font-size:12px;
+  padding:5px;
+  z-index:9999;
+	display: none;
+">
+	
+	<div id="logContent"></div>
+</div>
 <!-- Overlay for settings or extra panels -->
 <div id="overlay" style="
   display:none;
@@ -73,28 +97,6 @@
   ">
     <!-- content will be loaded here -->
   </div>
-</div>
-
-
-<script type="module" src="./src/main.js"></script>
-
-<!-- Debug logger -->
-<div id="logBox" style="
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  max-height:350px;
-  overflow-y:auto;
-  background:#000;
-  color:#0f0;
-  font-family:monospace;
-  font-size:12px;
-  padding:5px;
-  z-index:9999;
-	display: none;
-">
-	<div id="logContent"></div>
 </div>
 
 </body>
