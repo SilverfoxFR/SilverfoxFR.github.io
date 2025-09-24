@@ -3,7 +3,7 @@ const overlayContent = document.getElementById("overlayContent");
 
 document.getElementById("openSettings").addEventListener("click", async () => {
     // Load local HTML snippet dynamically
-    const response = await fetch("./src/ui/settings.html"); // your second HTML
+    const response = await fetch("./src/shell/settings.html"); // your second HTML
     const html = await response.text();
     overlayContent.innerHTML = html;
 
@@ -17,3 +17,4 @@ document.getElementById("openSettings").addEventListener("click", async () => {
         overlayContent.innerHTML = ""; // clear content for next time
     });
 });
+
