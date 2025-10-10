@@ -27,7 +27,7 @@ body {
   padding: 1.5rem;
   gap: 1.5rem;
   box-sizing: border-box;
-  background-color: rgba(0,0,0,0.55); /* overlay for readability */
+  background: #ffffff42; /* overlay for readability */
   border-radius: 12px;
   margin: auto;
   max-width: 900px;
@@ -198,19 +198,3 @@ main {
     position: relative; 
     z-index: 1;
 }
-
-#overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none; /* until you set it to flex */
-  justify-content: center;
-  align-items: center;
-  
-  /* this part is your bg fix: */
-  background-color: rgba(0, 0, 0, 0.6); /* nice transparent dark overlay */
-  backdrop-filter: blur(5px); /* optional aesthetic */
-}
-
