@@ -21,6 +21,17 @@ body {
   max-width: 900px;
 }
 
+#rootImpostor {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  box-sizing: border-box;
+  background-color: rgba(0,0,0,0.55); /* overlay for readability */
+  border-radius: 12px;
+  margin: auto;
+  max-width: 900px;
+}
 /* Header */
 header {
   font-size: 1.4rem;
