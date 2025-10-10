@@ -199,3 +199,88 @@ main {
     z-index: 1;
 }
 
+#rootImpostor h2, 
+#rootImpostor h3 {
+  margin: 0;
+  color: #fff;
+}
+
+/* Section layout */
+.settings-section {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  backdrop-filter: blur(3px);
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Fancy slider styling */
+.fancy-slider {
+  -webkit-appearance: none;
+  width: 150px;
+  height: 6px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, var(--btn-main, #3b82f6), var(--btn-accent, #1e40af));
+  outline: none;
+  transition: opacity 0.2s;
+}
+.fancy-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* Small variant of your fancy button */
+.fancy-btn.small {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+/* Key button look */
+.key-btn {
+  width: 45px;
+  text-align: center;
+}
+
+/* Fancy select dropdown */
+.fancy-select {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  outline: none;
+}
+.fancy-select:focus {
+  border-color: var(--btn-main, #3b82f6);
+}
+
+/* Tiny icons next to section titles */
+.icon {
+  height: 1.2em;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 0.4em;
+}
+
+/* Footer alignment */
+.settings-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
