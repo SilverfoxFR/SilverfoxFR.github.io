@@ -7,10 +7,66 @@
 <title>Modular Engine (Settings)</title>
 <link rel="stylesheet" href="./src/style.css">
 <link rel="apple-touch-icon" href="WebAssets/icon.png">
-<head>
+
+<head></head>
+<body>
   <div id="rootImpostor">
-    <h2>Settings Panel</h2>
-    <p>Stuff goes here…</p>
+    <h2>⚙️ Settings Panel</h2>
+
+    <!-- AUDIO SECTION -->
+    <section class="settings-section">
+      <h3><img src="./WebAssets/sound.png" alt="Sound" class="icon"> Audio</h3>
+      <div class="setting-item">
+        <label for="volumeRange">Master Volume</label>
+        <input type="range" id="volumeRange" min="0" max="100" value="75" class="fancy-slider">
+      </div>
+      <div class="setting-item">
+        <label for="muteToggle">Mute All</label>
+        <button id="muteToggle" class="fancy-btn small">Toggle</button>
+      </div>
+    </section>
+
+    <!-- CONTROLS SECTION -->
+    <section class="settings-section">
+      <h3><img src="./WebAssets/keyboard.png" alt="Keyboard" class="icon"> Controls</h3>
+      <div class="setting-item">
+        <label>Move Up:</label>
+        <button class="fancy-btn key-btn">W</button>
+      </div>
+      <div class="setting-item">
+        <label>Move Down:</label>
+        <button class="fancy-btn key-btn">S</button>
+      </div>
+      <div class="setting-item">
+        <label>Move Left:</label>
+        <button class="fancy-btn key-btn">A</button>
+      </div>
+      <div class="setting-item">
+        <label>Move Right:</label>
+        <button class="fancy-btn key-btn">D</button>
+      </div>
+    </section>
+
+    <!-- VISUAL SECTION -->
+    <section class="settings-section">
+      <h3><img src="./WebAssets/display.png" alt="Display" class="icon"> Display</h3>
+      <div class="setting-item">
+        <label for="themeSelect">Theme</label>
+        <select id="themeSelect" class="fancy-select">
+          <option>Light</option>
+          <option selected>Dark</option>
+          <option>System Default</option>
+        </select>
+      </div>
+      <div class="setting-item">
+        <label for="motionToggle">Motion Effects</label>
+        <input type="checkbox" id="motionToggle" checked>
+      </div>
+    </section>
+
+    <div class="settings-footer">
+      <button id="closeOverlay" class="fancy-btn">Close</button>
+    </div>
   </div>
-</head>
-<button id="closeOverlay" class="fancy-btn">Close</button>
+</body>
+</html>
