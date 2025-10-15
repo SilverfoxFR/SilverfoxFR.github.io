@@ -32,7 +32,7 @@ const observer = new MutationObserver(() => {
         const registrations = await navigator.serviceWorker.getRegistrations();
         for (const reg of registrations) {
           await reg.unregister();
-          console.log('🧹 Service worker unregistered');
+          console.log('Service worker unregistered');
         }
 
         window.location.reload(true);
@@ -41,11 +41,12 @@ const observer = new MutationObserver(() => {
       }
     });
 
-    console.log('✅ flushCacheBtn found and listener attached!');
+    console.log('flushCacheBtn found and listener attached!');
   }
 });
 
 observer.observe(document.body, { childList: true, subtree: true });
+
 
 
 
