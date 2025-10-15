@@ -14,9 +14,9 @@ const FILES_TO_CACHE = [
   './packs/Adventure/README.md',
   './packs/Adventure/SelfDesc.json',
   './WebAssets/icon.png',
-  './WebAssets/bg.png'
-  './WebAssets/keyboard.png'
-  './WebAssets/sound.png'
+  './WebAssets/bg.png',
+  './WebAssets/keyboard.png',
+  './WebAssets/sound.png',
   './WebAssets/display.png'
   // Add more files here manually if you want to cache specific pack icons or scripts
 ];
@@ -76,6 +76,7 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
+
 
 
 
