@@ -11,7 +11,7 @@ function registerSW() {
 // call it first thing
 registerSW();
 
-document.getElementById('flushCacheBtn')?.addEventListener('click', async () => {
+document.getElementById('flushCacheBtn').addEventListener('click', async () => {
   try {
 
     const cacheNames = await caches.keys();
