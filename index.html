@@ -40,6 +40,22 @@
     <!-- Game canvas -->
     <div class="card" id="gameWrap" style="display:none">
       	<canvas id="game" width="640" height="360" aria-label="Game canvas"></canvas>
+		<button id="fsBtn">Go Fullscreen</button>
+
+	<script>
+	const canvas = document.getElementById("game");
+	const btn = document.getElementById("fsBtn");
+
+	btn.addEventListener("click", () => {
+    	if (canvas.requestFullscreen) {
+        	canvas.requestFullscreen();
+    	} else if (canvas.webkitRequestFullscreen) { // Safari
+        	canvas.webkitRequestFullscreen();
+    	} else if (canvas.msRequestFullscreen) { // IE/Edge
+        	canvas.msRequestFullscreen();
+    	}
+	});
+	</script>
 		<div id="runtime"></div>
     </div>
   </main>
