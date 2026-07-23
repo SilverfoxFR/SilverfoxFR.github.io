@@ -1,6 +1,6 @@
 {
-    "name": "Modular Engine",
-    "short_name": "ModEngine",
+    "name": "Silverfox Menu",
+    "short_name": "SilverMenu",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#000000",
