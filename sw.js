@@ -2,23 +2,6 @@ const CACHE_NAME = 'modular-engine-v1';
 const FILES_TO_CACHE = [
   './index.html',
   './src/style.css',
-  './src/main.js',
-  './src/shell/logger.js',
-  './src/shell/MenuHandler.js',
-  './src/shell/packLoader.js',
-  './vendor/jszip.min.js',
-  './packs/index.json',
-  './packs/Adventure/scripts/entry.js',
-  './packs/Adventure/FileContent.json',
-  './packs/Adventure/icon.png',
-  './packs/Adventure/README.md',
-  './packs/Adventure/SelfDesc.json',
-  './WebAssets/icon.png',
-  './WebAssets/bg.png',
-  './WebAssets/keyboard.png',
-  './WebAssets/sound.png',
-  './WebAssets/display.png'
-  // Add more files here manually if you want to cache specific pack icons or scripts
 ];
 
 function swLog(msg) {
