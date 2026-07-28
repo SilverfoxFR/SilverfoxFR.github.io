@@ -1,1 +1,0 @@
-export class Scene{ enter(ctx){} leave(ctx){} update(dt,ctx){} render(r,ctx){} }
