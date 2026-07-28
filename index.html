@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title>Silver's Projects</title>
+
+    <link rel="stylesheet" href="./src/style.css">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<body>
+<canvas id="bg"></canvas>
+<div id="root">
+
+    <header class="row">
+        <strong>Silver's Projects</strong>
+    </header>
+
+    <main id="appMain">
+
+        <div class="card">
+
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.5rem;">
+                <h3 style="margin:0;">Projects</h3>
+            </div>
+
+            <div id="projectsGrid" class="pack-grid">
+                <!-- JS (or plain HTML) can populate clickable cells here -->
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="row">
+        <span>A collection of my random projects, experiments and tool</span>
+    </footer>
+
+</div>
+
+<!-- Your future table/grid management JS -->
+<script type="module" src="./src/main.js"></script>
+
+<!-- Shader time bby -->
+<script type="module">
+	import * as THREE from "./thirdParty/three.module.js";
+	async function loadShader(url) {
+		const res = await fetch(url);
+		return await res.text();
+	}
+	async function init() {
+		const [vertexShader, fragmentShader] = await Promise.all([
+			loadShader("./shaders/bg.vert"),
+			loadShader("./shaders/bg.frag")
+		]);
+		const scene = new THREE.Scene();
+		const camera = new THREE.OrthographicCamera(-1,1,1,-1,0,1);
+		const renderer = new THREE.WebGLRenderer({
+			canvas: document.getElementById("bg")
+		});
+		renderer.setSize(window.innerWidth, window.innerHeight);
+
+		const uniforms = {
+			uTime: { value: 0 },
+			uResolution: { value: new THREE.Vector2(innerWidth, innerHeight) },
+			uMouse: { value: new THREE.Vector2(0.5, 0.5) },
+			uTransition: { value: window.__portfolioActive ? 1 : 0 }
+		};
+
+		let targetTransition = window.__portfolioActive ? 1 : 0;
+		window.addEventListener('pack-view-change', (e) => {
+			targetTransition = e.detail.portfolio ? 1 : 0;
+		});
+		
+		const material = new THREE.ShaderMaterial({
+			uniforms,
+			vertexShader,
+			fragmentShader
+		});
+
+		window.addEventListener("pointermove", (e) => {
+			uniforms.uMouse.value.set(
+				e.clientX / innerWidth,
+				1.0 - e.clientY / innerHeight
+			);
+		});
+
+		// --- transition state, driven by main.js's router ---
+		const state = { target: 0, portfolioTime: 0 };
+		window.addEventListener("viewchange", (e) => {
+			state.target = e.detail.view === "cv" ? 1 : 0;
+		});
+
+		const quad = new THREE.Mesh(new THREE.PlaneGeometry(2,2), material);
+		scene.add(quad);
+
+		let lastTime = performance.now();
+		function animate(time) {
+			uniforms.uTime.value = time * 0.001;
+			uniforms.uTransition.value += (targetTransition - uniforms.uTransition.value) * 0.03; // eased, ~1-2s to settle
+			renderer.render(scene, camera);
+			requestAnimationFrame(animate);
+		}
+		requestAnimationFrame(animate);
+
+		window.addEventListener("resize", () => {
+			renderer.setSize(innerWidth, innerHeight);
+			uniforms.uResolution.value.set(innerWidth, innerHeight);
+		});
+	}
+	init();
+</script>
+
+</body>
+</html>
